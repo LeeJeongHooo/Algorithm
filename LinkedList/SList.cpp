@@ -22,15 +22,18 @@ void insert(int addr, int num) {
     dat[unused] = num;
     pre[unused] = addr;
     nxt[unused] = nxt[addr];
-    nxt[addr] = unused;
     if(nxt[addr] != -1) { //마지막노드뒤에 삽입 시 index[-1]에 접근하기에 설정
         pre[nxt[addr]] = unused;
     }
+    nxt[addr] = unused;
     unused ++;
 }
 
 void erase(int addr) {
-
+    nxt[pre[addr]] = nxt[addr];
+    if(nxt[addr] != -1){
+        pre[nxt[addr]] = pre[addr];
+    }
 }
 
 void insert_test(){
@@ -63,5 +66,6 @@ int main(void) {
     fill(pre, pre + MX, -1);
     fill(nxt, nxt + MX, -1);
     insert_test();
+    cout << "\n";
     erase_test();
 }
