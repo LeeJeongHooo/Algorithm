@@ -11,31 +11,57 @@ int unused = 1;
 //0번지 dump로 예외처리를 가능하게 한다. 데이터가 존재하지않고 다음노드의 주소만 존재
 void traverse(){
     int curr = nxt[0];
-    while(curr == -1){
+    while(curr != -1){
         cout << dat[curr] << " -> ";
         curr = nxt[curr]; //다음주소로 계속 최신화
     };
+    cout << "None \n";
 }
 
 void insert(int addr, int num) {
-    pre[unused] = addr;
-    nxt[addr] = unused;
-    nxt[unused] = nxt[addr];
-    pre[nxt[addr]] = unused;
     dat[unused] = num;
+    pre[unused] = addr;
+    nxt[unused] = nxt[addr];
+    nxt[addr] = unused;
+    if(nxt[addr] != -1) { //마지막노드뒤에 삽입 시 index[-1]에 접근하기에 설정
+        pre[nxt[addr]] = unused;
+    }
     unused ++;
 }
 
-// void erase(int addr) {
+void erase(int addr) {
 
-// }
+}
 
+void insert_test(){
+  cout << "****** insert_test *****\n";
+  insert(0, 10); // 10(address=1)
+  traverse();
+  insert(0, 30); // 30(address=2) 10
+  traverse();
+  insert(2, 40); // 30 40(address=3) 10
+  traverse();
+  insert(1, 20); // 30 40 10 20(address=4)
+  traverse();
+  insert(4, 70); // 30 40 10 20 70(address=5)
+  traverse();
+}
+
+void erase_test(){
+  cout << "****** erase_test *****\n";
+  erase(1); // 30 40 20 70
+  traverse();
+  erase(2); // 40 20 70
+  traverse();
+  erase(4); // 40 70
+  traverse();
+  erase(5); // 40
+  traverse();
+}
 
 int main(void) {
     fill(pre, pre + MX, -1);
     fill(nxt, nxt + MX, -1);
-    insert(0,30);
-    insert(1,60);
-    insert(2,20);
-    traverse();
+    insert_test();
+    erase_test();
 }
