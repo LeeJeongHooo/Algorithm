@@ -35,5 +35,4 @@ int main(void){
     if(s.empty()){
         cout <<  "This stack is empty";
     }
-
 }
