@@ -41,7 +41,7 @@ int main(void)
         }
         else if (s == "pop")
         {
-            if (pos)
+            if (pos == 0)
             {
                 cout << -1 << "\n";
             }
@@ -57,7 +57,7 @@ int main(void)
         }
         else if (s == "empty")
         {
-            if (pos)
+            if (pos == 0)
             {
                 cout << 1 << "\n";
             }
@@ -68,7 +68,7 @@ int main(void)
         }
         else
         { // top
-            if (pos)
+            if (pos == 0)
             {
                 cout << -1 << "\n";
             }
