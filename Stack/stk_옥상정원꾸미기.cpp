@@ -1,4 +1,6 @@
 /*BAEKJOON 6198*/
+//조금 더 이해가 필요한 코드
+//Monotone stack 알고리즘
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -11,7 +13,7 @@ int main(void){
     int n; 
     cin >> n;
     while(n--){
-        long long height;
+        long long height; //int의 범위를 넘어가기 때문에 선언
         cin >> height;
         while(!s.empty() && s.top() <= height){
             s.pop();
