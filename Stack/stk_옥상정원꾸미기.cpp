@@ -1,6 +1,6 @@
 /*BAEKJOON 6198*/
 //조금 더 이해가 필요한 코드
-//Monotone stack 알고리즘
+//Monotone stack 알고리즘 이해하면 Stack구조 정확히 이해하기
 
 #include<bits/stdc++.h>
 using namespace std;
