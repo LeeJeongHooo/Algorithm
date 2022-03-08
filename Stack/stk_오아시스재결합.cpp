@@ -3,6 +3,7 @@
 using namespace std;
 //A와B사이에 사람이 있을 경우 A 또는 B보다 없을때 서로 볼 수 있다.
 
+//입력이 1<= N < 500000 이기에 O(N)에 시간제약이 걸려있다.
 int main(void){
     ios::sync_with_stdio(0);
     cin.tie(0);
@@ -32,5 +33,5 @@ int main(void){
         }
         s.push({h, count});
     }
-    cout << result << " result";
+    cout << result;
 }
